@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>try1 竞赛宣传站 · iCAN / RAICOM / RST 到底比什么</title>
+<meta name="description" content="iCAN、RAICOM、RST 三项大学生竞赛的赛项拆解、赛季战报与官方入口。每项比赛比什么、有哪些赛项、选手要交出什么，一页讲清。">
+<!--
+  ============================================================
+  说明（2026-10 改版）
+  本站为三项赛事聚合宣传页，面向学院/社团宣传。
+  1. 三项赛事：iCAN / RAICOM / RST
+  2. 赛项信息来自赛事官网公开通知与规则文件（含水中机器鱼仿真组规则 PDF）
+  3. 官网：iCAN https://www.g-ican.com ／ RAICOM https://www.raicom.com.cn ／ RST http://urc.ilur.org
+  4. 战报整理自各高校官网公开新闻，成绩以赛事官方公布为准
+  5. 现场图片由 AI 生成占位，收到真实照片后替换 src 即可
+  ============================================================
+-->
+<style>
+  :root{
+    --paper:#fbfaf6;
+    --paper-2:#f4f1e9;
+    --paper-3:#ece7da;
+    --ink:#17233d;
+    --ink-2:#3f4b63;
+    --muted:#79808f;
+    --line:#e2ddd0;
+    --line-2:#d3ccba;
+    --accent:#1f4e8c;
+    --accent-soft:#eaf0f8;
+    --gold:#a9873f;
+    --ican:#1f4e8c;
+    --ican-soft:#eaf0f8;
+    --raicom:#2c6b5f;
+    --raicom-soft:#e8f1ee;
+    --rst:#a2762c;
+    --rst-soft:#f6efe2;
+    --serif:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --shadow:0 30px 70px -50px rgba(23,35,61,.55);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+  body.is-locked{overflow:hidden}
+  img{display:block;max-width:100%}
+  a{color:var(--accent);text-underline-offset:3px}
+  ::selection{background:var(--accent);color:#fff}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .container{width:min(1160px,100% - 48px);margin-inline:auto}
+
+  .skip-link{position:fixed;left:16px;top:-60px;z-index:200;background:var(--ink);color:#fff;padding:10px 16px;border-radius:2px;transition:top .2s}
+  .skip-link:focus{top:16px}
+
+  /* ================= 顶部 ================= */
+  .site-header{
+    position:fixed;inset:0 0 auto 0;z-index:100;height:72px;
+    border-bottom:1px solid transparent;
+    transition:background .3s,border-color .3s,box-shadow .3s;
+  }
+  .site-header.is-scrolled{
+    background:rgba(251,250,246,.93);backdrop-filter:blur(10px);
+    border-bottom-color:var(--line);box-shadow:0 10px 30px -28px rgba(23,35,61,.6);
+  }
+  .header-inner{height:100%;display:flex;align-items:center;gap:28px;width:min(1220px,100% - 48px);margin-inline:auto}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;flex:none}
+  .brand img{width:34px;height:34px;object-fit:cover;background:#000}
+  .brand-text{display:flex;flex-direction:column;line-height:1.2}
+  .brand-text b{font-family:var(--serif);font-size:15px;font-weight:600;letter-spacing:.05em}
+  .brand-text small{font-size:9.5px;letter-spacing:.24em;color:var(--muted);text-transform:uppercase}
+
+  .nav{margin-left:auto;display:flex;align-items:center;gap:26px}
+  .nav a{position:relative;color:var(--ink-2);text-decoration:none;font-size:14px;letter-spacing:.04em;padding:6px 0}
+  .nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--accent);transition:right .3s}
+  .nav a:hover,.nav a.is-active{color:var(--accent)}
+  .nav a:hover::after,.nav a.is-active::after{right:0}
+  .header-cta{flex:none;background:var(--accent);color:#fff;border:none;border-radius:2px;padding:10px 20px;font-size:14px;letter-spacing:.06em;cursor:pointer;transition:background .2s,transform .2s;font-family:inherit}
+  .header-cta:hover{background:var(--ink);transform:translateY(-1px)}
+
+  .menu-toggle{display:none;margin-left:auto;width:42px;height:42px;padding:0;background:none;border:1px solid var(--line-2);border-radius:2px;cursor:pointer;position:relative}
+  .menu-toggle span{position:absolute;left:11px;right:11px;height:1px;background:var(--ink);transition:transform .25s,opacity .2s}
+  .menu-toggle span:nth-child(1){top:15px}
+  .menu-toggle span:nth-child(2){top:20px}
+  .menu-toggle span:nth-child(3){top:25px}
+  .menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+  .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+
+  /* ================= 首屏 ================= */
+  .hero{position:relative;padding:142px 0 74px;overflow:hidden;
+    background:radial-gradient(900px 500px at 90% -10%,#f2ecdf 0%,rgba(242,236,223,0) 70%),
+               radial-gradient(760px 420px at -5% 100%,#eaf0f8 0%,rgba(234,240,248,0) 70%);}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(90deg,rgba(23,35,61,.045) 1px,transparent 1px);
+    background-size:calc(100% / 6) 100%;
+    mask-image:linear-gradient(180deg,rgba(0,0,0,.5),transparent 78%);
+    -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.5),transparent 78%);}
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(32px,5vw,72px);align-items:center}
+  .eyebrow{display:flex;align-items:center;gap:14px;margin:0 0 26px;font-size:12px;letter-spacing:.26em;color:var(--muted);text-transform:uppercase}
+  .eyebrow::before{content:"";width:48px;height:1px;background:var(--gold)}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,4.5vw,3.65rem);line-height:1.22;letter-spacing:-.01em;margin:0 0 24px}
+  .hero h1 em{font-style:normal;color:var(--accent);position:relative;white-space:nowrap}
+  .hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.32em;background:linear-gradient(180deg,rgba(31,78,140,.16),rgba(31,78,140,.05));z-index:-1}
+  .hero-sub{max-width:35em;margin:0 0 32px;color:var(--ink-2);font-size:1rem}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 26px;border-radius:2px;border:1px solid transparent;font-family:var(--sans);font-size:.94rem;letter-spacing:.06em;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s}
+  .btn--primary{background:var(--accent);color:#fff}
+  .btn--primary:hover{background:var(--ink);transform:translateY(-1px);box-shadow:0 14px 30px -22px rgba(23,35,61,.8)}
+  .btn--ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
+  .btn--ghost:hover{background:var(--ink);color:#fff;transform:translateY(-1px)}
+  .btn .arrow{transition:transform .2s}
+  .btn:hover .arrow{transform:translateX(3px)}
+
+  .hero-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-top:24px;border-top:1px solid var(--line-2)}
+  .hero-meta span{display:block;margin-bottom:5px;font-size:11px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+  .hero-meta strong{font-family:var(--serif);font-weight:600;font-size:1.4rem;letter-spacing:.02em}
+  .hero-meta strong small{font-size:.62em;font-weight:400;color:var(--muted);margin-left:2px}
+
+  .hero-figure{position:relative;margin:0;padding:12px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .hero-figure::before{content:"";position:absolute;left:-9px;top:26px;width:9px;height:64px;background:var(--gold)}
+  .hero-figure img{width:100%;height:clamp(300px,40vw,430px);object-fit:cover;background:var(--paper-2)}
+  .hero-legend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 4px 2px}
+  .hero-legend span{display:inline-flex;align-items:center;gap:7px;font-size:.76rem;letter-spacing:.1em;color:var(--ink-2)}
+  .dot{width:7px;height:7px;border-radius:50%;flex:none;display:inline-block}
+  .dot--ican{background:var(--ican)}
+  .dot--raicom{background:var(--raicom)}
+  .dot--rst{background:var(--rst)}
+
+  /* ================= 区块 ================= */
+  .section{padding:94px 0}
+  .section--tint{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  section[id]{scroll-margin-top:88px}
+  .section-head{display:grid;grid-template-columns:88px minmax(0,1fr);gap:24px;padding-top:24px;margin-bottom:48px;border-top:1px solid var(--ink)}
+  .section-num{font-family:var(--serif);font-size:.8rem;letter-spacing:.22em;color:var(--muted);padding-top:.55em}
+  .section-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.55rem,2.8vw,2.15rem);line-height:1.35;letter-spacing:.01em;margin:0 0 12px}
+  .section-desc{max-width:64ch;margin:0;color:var(--ink-2);font-size:.96rem}
+
+  [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+  [data-reveal].is-visible{opacity:1;transform:none}
+  [data-reveal][data-delay="1"]{transition-delay:.08s}
+  [data-reveal][data-delay="2"]{transition-delay:.16s}
+  [data-reveal][data-delay="3"]{transition-delay:.24s}
+
+  /* ================= 赛事卡片 ================= */
+  .event-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  .event-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);transition:transform .3s,box-shadow .3s,border-color .3s}
+  .event-card:hover{transform:translateY(-4px);border-color:var(--line-2);box-shadow:0 26px 50px -42px rgba(23,35,61,.55)}
+  .event-media{position:relative;overflow:hidden;background:var(--paper-2)}
+  .event-media img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .6s ease}
+  .event-card:hover .event-media img{transform:scale(1.04)}
+  .event-media .event-index{position:absolute;left:14px;top:12px;padding:3px 9px;background:rgba(251,250,246,.92);font-family:var(--serif);font-size:.72rem;letter-spacing:.16em;color:var(--ink-2)}
+  .event-body{display:flex;flex-direction:column;flex:1;padding:26px 24px 22px;border-top:3px solid var(--c)}
+  .event-kind{font-size:.7rem;letter-spacing:.16em;color:var(--muted);margin-bottom:6px}
+  .event-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:.04em;margin:0 0 2px}
+  .event-full{font-size:.78rem;color:var(--muted);margin:0 0 14px}
+  .event-desc{margin:0 0 18px;font-size:.88rem;color:var(--ink-2)}
+  .event-latest{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;background:var(--paper-2);font-size:.8rem;color:var(--ink-2);line-height:1.7}
+  .event-latest b{display:block;font-size:.68rem;letter-spacing:.16em;color:var(--c);font-weight:500;margin-bottom:2px}
+  .event-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:20px}
+  .mini-btn{padding:8px 14px;border:1px solid var(--line-2);background:transparent;color:var(--ink-2);font-family:inherit;font-size:.78rem;letter-spacing:.08em;border-radius:2px;cursor:pointer;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+  .mini-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .mini-btn--solid{background:var(--c);color:#fff;border-color:var(--c)}
+  .mini-btn--solid:hover{background:var(--ink);border-color:var(--ink)}
+
+  /* ================= 战报 ================= */
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px;border-bottom:1px solid var(--line-2);padding-bottom:16px}
+  .tab{padding:8px 16px;border:1px solid var(--line-2);background:transparent;border-radius:2px;font-family:inherit;font-size:.82rem;letter-spacing:.08em;color:var(--ink-2);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+  .tab .n{font-family:var(--serif);font-size:.72rem;color:var(--muted);margin-left:6px}
+  .tab:hover{border-color:var(--ink)}
+  .tab.is-active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .tab.is-active .n{color:#c6cbd6}
+  .report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .report{display:grid;grid-template-columns:92px minmax(0,1fr);gap:20px;padding:26px 24px;background:#fff;border:1px solid var(--line);transition:border-color .25s,transform .25s,box-shadow .25s}
+  .report:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:0 22px 46px -42px rgba(23,35,61,.6)}
+  .report[hidden]{display:none}
+  .report-date{font-family:var(--serif);font-size:.86rem;letter-spacing:.02em;color:var(--ink);padding-top:2px;border-right:1px solid var(--line);line-height:1.6}
+  .report-date small{display:block;font-size:.68rem;letter-spacing:.14em;color:var(--muted);margin-top:6px}
+  .report-tag{display:inline-flex;align-items:center;gap:6px;margin-bottom:8px;font-size:.68rem;letter-spacing:.14em;color:var(--muted)}
+  .report h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;line-height:1.5;margin:0 0 8px}
+  .report p{margin:0 0 12px;font-size:.85rem;color:var(--muted)}
+  .report-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;font-size:.76rem;color:var(--muted)}
+  .report-stat{color:var(--c);font-family:var(--serif);font-size:.9rem;font-weight:600}
+  .report-school{color:var(--ink-2)}
+  .empty{padding:34px;text-align:center;color:var(--muted);font-size:.9rem;border:1px dashed var(--line-2)}
+
+  /* ================= 现场 ================= */
+  .gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:150px;gap:16px}
+  .shot{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--paper-2);padding:0;cursor:zoom-in;display:block}
+  .shot:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .shot:nth-child(2){grid-column:span 2;grid-row:span 1}
+  .shot:nth-child(3){grid-column:span 1;grid-row:span 1}
+  .shot:nth-child(4){grid-column:span 1;grid-row:span 1}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .4s}
+  .shot:hover img{transform:scale(1.05)}
+  .shot-cap{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;background:linear-gradient(180deg,transparent,rgba(16,25,40,.72));color:#fff;font-size:.78rem;letter-spacing:.06em;text-align:left;line-height:1.5}
+  .shot-cap small{display:block;font-size:.66rem;color:rgba(255,255,255,.65);letter-spacing:.12em;margin-top:2px}
+  .gallery-note{margin:14px 0 0;font-size:.76rem;color:var(--muted)}
+
+  /* ================= 赛项拆解 ================= */
+  .bd-switch{display:flex;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--line-2)}
+  .bd-tab{position:relative;top:1px;display:inline-flex;align-items:center;gap:9px;padding:14px 24px;background:none;border:1px solid transparent;border-bottom:none;font-family:inherit;font-size:.9rem;letter-spacing:.05em;color:var(--muted);cursor:pointer;transition:color .2s,background .2s}
+  .bd-tab:hover{color:var(--ink)}
+  .bd-tab .n{font-family:var(--serif);font-size:.72rem;letter-spacing:.14em;color:var(--muted)}
+  .bd-tab.is-active{background:#fff;border-color:var(--line-2);color:var(--ink);font-weight:600}
+  .bd-tab.is-active .n{color:var(--gold)}
+  .bd-panel{display:none;padding:clamp(26px,3.6vw,40px);background:#fff;border:1px solid var(--line-2);border-top:none}
+  .bd-panel.is-active{display:block;animation:bd-in .3s cubic-bezier(.22,.61,.36,1)}
+  @keyframes bd-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .bd-top{display:grid;grid-template-columns:1.45fr .9fr;gap:clamp(24px,4vw,52px);padding-bottom:26px;border-bottom:1px solid var(--line);margin-bottom:28px}
+  .bd-index{display:block;margin-bottom:10px;font-size:.68rem;letter-spacing:.22em;color:var(--c);text-transform:uppercase}
+  .bd-title h3{font-family:var(--serif);font-size:clamp(1.25rem,2.2vw,1.62rem);font-weight:600;line-height:1.45;margin:0 0 12px}
+  .bd-title p{margin:0;font-size:.92rem;color:var(--ink-2)}
+  .bd-facts{margin:0;display:grid;align-content:start;border-top:1px solid var(--line-2)}
+  .bd-facts div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .bd-facts dt{font-size:.72rem;letter-spacing:.12em;color:var(--muted);white-space:nowrap}
+  .bd-facts dd{margin:0;font-size:.84rem;color:var(--ink);text-align:right}
+  .bd-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,52px)}
+  .bd-col h4{margin:0 0 12px;font-family:var(--serif);font-size:.98rem;font-weight:600;letter-spacing:.04em;padding-bottom:10px;border-bottom:1px solid var(--line-2)}
+  .bd-list{list-style:none;margin:0;padding:0}
+  .bd-list li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.85rem;line-height:1.65}
+  .bd-list li:last-child{border-bottom:none}
+  .bd-list b{font-weight:600;color:var(--ink)}
+  .bd-list span{color:var(--ink-2)}
+  .bd-case{margin-top:26px;padding:18px 22px;background:var(--paper-2);border-left:3px solid var(--c)}
+  .bd-case-tag{display:block;margin-bottom:6px;font-size:.68rem;letter-spacing:.18em;color:var(--c)}
+  .bd-case p{margin:0;font-size:.87rem;color:var(--ink-2)}
+  .bd-case b{color:var(--ink)}
+
+  /* ================= 关于 ================= */
+  .about-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,4vw,60px)}
+  .about-block{background:#fff;border:1px solid var(--line);padding:30px 28px}
+  .about-block h3{font-family:var(--serif);font-size:1.1rem;font-weight:600;margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line);letter-spacing:.04em}
+  .about-block p{margin:0 0 1em;font-size:.9rem;color:var(--ink-2)}
+  .about-block p:last-child{margin-bottom:0}
+  .link-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+  .link-row:first-of-type{border-top:1px solid var(--line)}
+  .link-row span{display:inline-flex;align-items:center;gap:9px;color:var(--ink-2)}
+  .link-row a{font-size:.78rem;letter-spacing:.08em;text-decoration:none;color:var(--accent)}
+  .link-row a:hover{text-decoration:underline;text-underline-offset:4px}
+  .link-note{margin-top:14px;font-size:.74rem;color:var(--muted)}
+
+  /* ================= 页脚 ================= */
+  .footer{background:var(--ink);color:#e8e6df}
+  .footer-main{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:44px;padding:66px 0 52px}
+  .footer h4{margin:0 0 16px;font-family:var(--serif);font-size:.84rem;font-weight:600;letter-spacing:.18em;color:#fff}
+  .footer p,.footer li{font-size:.84rem;color:#b7bcc9;line-height:1.9}
+  .footer .footer-brand{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:#fff;letter-spacing:.04em;margin:0 0 8px}
+  .footer .footer-brand small{display:block;margin-top:6px;font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;color:#8f96a6;font-weight:400}
+  .footer ul{list-style:none;margin:0;padding:0}
+  .footer a{color:#d9dce4;text-decoration:none}
+  .footer a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.13);padding:20px 0;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.74rem;color:#8f96a6;letter-spacing:.03em}
+
+  /* ================= 回到顶部 ================= */
+  .to-top{position:fixed;right:24px;bottom:24px;z-index:90;width:44px;height:44px;padding:0;display:grid;place-items:center;background:var(--paper);border:1px solid var(--line-2);border-radius:2px;color:var(--ink);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:all .25s}
+  .to-top.is-shown{opacity:1;visibility:visible;transform:none}
+  .to-top:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+  /* ================= 弹窗 ================= */
+  .modal{width:min(700px,calc(100% - 32px));max-height:86vh;padding:0;border:none;border-radius:2px;background:var(--paper);color:var(--ink);box-shadow:0 50px 120px -40px rgba(10,18,32,.7);overflow:hidden}
+  .modal::backdrop{background:rgba(23,35,61,.52);backdrop-filter:blur(4px)}
+  .modal[open]{animation:modal-in .28s cubic-bezier(.22,.61,.36,1)}
+  @keyframes modal-in{from{opacity:0;transform:translateY(14px) scale(.99)}to{opacity:1;transform:none}}
+  .modal-inner{display:flex;flex-direction:column;max-height:86vh}
+  .modal-head{position:relative;padding:32px 36px 18px;border-bottom:1px solid var(--line);background:var(--paper)}
+  .modal-kicker{margin:0 0 8px;font-size:.68rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+  .modal-head h2{margin:0;font-family:var(--serif);font-weight:600;font-size:1.5rem;letter-spacing:.02em;padding-right:40px}
+  .modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;padding:0;display:grid;place-items:center;background:none;border:1px solid var(--line);border-radius:2px;color:var(--ink-2);cursor:pointer;transition:all .2s}
+  .modal-close:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .modal-body{padding:24px 36px 30px;overflow:auto;font-size:.93rem;color:var(--ink-2)}
+  .modal-body > p:first-child{margin-top:0}
+  .modal-body p{margin:0 0 1em}
+  .modal-body h4{font-family:var(--serif);font-size:.98rem;font-weight:600;color:var(--ink);margin:1.5em 0 .5em}
+  .modal-body ul{margin:0 0 1.1em;padding-left:1.2em}
+  .modal-body li{margin-bottom:.4em}
+  .modal-lead{padding:13px 15px;background:var(--paper-2);border-left:2px solid var(--gold);font-size:.86rem}
+  .stat-line{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+  .stat-line div{padding:12px 14px;border:1px solid var(--line);background:#fff}
+  .stat-line span{display:block;font-size:.66rem;letter-spacing:.16em;color:var(--muted);margin-bottom:2px}
+  .stat-line b{font-family:var(--serif);font-size:1.15rem;font-weight:600}
+  .modal-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:16px 36px;border-top:1px solid var(--line);background:var(--paper-2)}
+  .modal-foot .btn{padding:10px 20px;font-size:.84rem}
+  .modal-foot small{margin-left:auto;color:var(--muted);font-size:.72rem}
+  .modal-link-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+  .modal-link-row:first-of-type{border-top:1px solid var(--line)}
+  .modal-link-row b{font-weight:500;color:var(--ink);font-size:.88rem}
+  .modal-src{margin:-.2em 0 1.1em;font-size:.76rem;line-height:1.7;color:var(--muted)}
+  .modal-src a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+  /* ================= 大图查看 ================= */
+  .lightbox{width:min(1040px,calc(100% - 24px));max-width:100%;max-height:92vh;padding:0;border:none;background:#0f1729;color:#fff;overflow:visible}
+  .lightbox::backdrop{background:rgba(8,13,24,.85)}
+  .lightbox img{width:100%;max-height:78vh;object-fit:contain;background:#0f1729}
+  .lightbox figcaption{padding:16px 22px 20px;font-size:.84rem;color:#cfd6e2;letter-spacing:.04em;display:flex;justify-content:space-between;gap:16px}
+  .lb-close{position:absolute;top:-44px;right:0;width:34px;height:34px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;cursor:pointer;display:grid;place-items:center;border-radius:2px}
+  .lb-close:hover{background:rgba(255,255,255,.22)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:56px;display:grid;place-items:center;background:rgba(15,23,41,.72);border:1px solid rgba(255,255,255,.25);color:#fff;cursor:pointer;border-radius:2px}
+  .lb-nav:hover{background:rgba(31,78,140,.9)}
+  .lb-prev{left:-56px}
+  .lb-next{right:-56px}
+
+  /* ================= 响应式 ================= */
+  @media (max-width:1080px){
+    .hero-inner{grid-template-columns:1fr;gap:40px}
+    .hero{padding-top:118px}
+    .event-grid{grid-template-columns:1fr 1fr}
+    .bd-top{grid-template-columns:1fr;gap:22px}
+    .about-grid{grid-template-columns:1fr;gap:22px}
+    .footer-main{grid-template-columns:1fr 1fr;gap:34px}
+    .lb-prev{left:8px}
+    .lb-next{right:8px}
+  }
+  @media (max-width:860px){
+    .nav,.header-cta{display:none}
+    .menu-toggle{display:block}
+    .site-header.is-menu-open{background:var(--paper);border-bottom-color:var(--line)}
+    .mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;z-index:99;padding:18px 24px 26px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 30px 40px -36px rgba(23,35,61,.6)}
+    .mobile-menu.is-open{display:block}
+    .mobile-menu a{display:block;padding:13px 2px;color:var(--ink);text-decoration:none;font-size:.94rem;border-bottom:1px solid var(--line);letter-spacing:.04em}
+    .mobile-menu .btn{margin-top:18px;width:100%}
+    .gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:140px}
+    .shot:nth-child(1){grid-column:span 2;grid-row:span 2}
+    .shot:nth-child(2){grid-column:span 2;grid-row:span 1}
+    .shot:nth-child(3),.shot:nth-child(4){grid-column:span 1;grid-row:span 1}
+  }
+  @media (min-width:861px){.mobile-menu{display:none !important}}
+  @media (max-width:720px){
+    .container{width:calc(100% - 36px)}
+    .hero{padding-top:110px;padding-bottom:52px}
+    .hero h1{font-size:clamp(2rem,7.6vw,2.6rem)}
+    .hero-meta strong{font-size:1.2rem}
+    .section{padding:66px 0}
+    .section-head{grid-template-columns:1fr;gap:8px;margin-bottom:36px}
+    .section-num{padding-top:0}
+    .event-grid,.report-grid{grid-template-columns:1fr}
+    .bd-cols{grid-template-columns:1fr;gap:22px}
+    .bd-tab{flex:1 1 0;justify-content:center;padding:12px 14px}
+    .bd-list li{grid-template-columns:1fr;gap:2px;padding:11px 0}
+    .bd-panel{padding:22px 20px}
+    .bd-case{padding:16px 16px}
+    .report{grid-template-columns:1fr;gap:10px;padding:22px 20px}
+    .report-date{border-right:none;border-bottom:1px solid var(--line);padding-bottom:8px}
+    .report-date small{display:inline;margin-left:8px}
+    .gallery{grid-auto-rows:120px;gap:10px}
+    .modal-head{padding:26px 22px 16px}
+    .modal-head h2{font-size:1.28rem}
+    .modal-body{padding:20px 22px 24px}
+    .modal-foot{padding:14px 22px}
+    .modal-foot small{width:100%;margin-left:0}
+    .stat-line{grid-template-columns:1fr}
+    .footer-main{grid-template-columns:1fr;gap:30px;padding:50px 0 38px}
+    .to-top{right:16px;bottom:16px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
+    [data-reveal]{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <img src="assets/logo.png" alt="try1 团队标识">
+      <span class="brand-text">
+        <b>try1 · 竞赛宣传站</b>
+        <small>Campus Competition 2024—2026</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#events">赛事总览</a>
+      <a href="#breakdown">赛项拆解</a>
+      <a href="#results">赛季战报</a>
+      <a href="#scenes">现场</a>
+      <a href="#about">关于</a>
+    </nav>
+    <button class="header-cta" type="button" data-modal="links">官方入口</button>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="打开菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#events">赛事总览</a>
+  <a href="#breakdown">赛项拆解</a>
+  <a href="#results">赛季战报</a>
+  <a href="#scenes">现场</a>
+  <a href="#about">关于</a>
+  <button class="btn btn--primary" type="button" data-modal="links">官方入口</button>
+</div>
+
+<main id="main">
+  <!-- ============ 首屏 ============ -->
+  <section class="hero" id="top">
+    <div class="hero-inner container">
+      <div class="hero-copy">
+        <p class="eyebrow">2026 赛季 · 三项大学生竞赛</p>
+        <h1>三项赛事<br>各自到底在<em>比什么</em></h1>
+        <p class="hero-sub">
+          iCAN 做产品，RAICOM 做整机，RST 做机器人整机或仿真策略。
+          这一页不堆流程，直接讲清每项比赛比什么、有哪些赛项、选手最后要交出什么，
+          再附上赛季战报和官方入口。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#breakdown">看赛项拆解<span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#results">查看赛季战报</a>
+        </div>
+        <div class="hero-meta">
+          <div><span>覆盖赛事</span><strong>03<small> 项</small></strong></div>
+          <div><span>涉及赛道</span><strong>12<small> 条</small></strong></div>
+          <div><span>赛季</span><strong>2026</strong></div>
+        </div>
+      </div>
+      <figure class="hero-figure" data-reveal>
+        <img
+          src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=university%20robotics%20competition%20arena%2C%20students%20and%20small%20robots%2C%20warm%20daylight%2C%20cream%20and%20navy%20palette%2C%20documentary%20editorial%20photography%2C%20shallow%20depth%20of%20field&amp;image_size=landscape_4_3"
+          alt="大学机器人竞赛现场，学生与小型机器人在暖光下调试">
+        <div class="hero-legend">
+          <span><i class="dot dot--ican"></i>iCAN</span>
+          <span><i class="dot dot--raicom"></i>RAICOM</span>
+          <span><i class="dot dot--rst"></i>RST</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 赛事总览 ============ -->
+  <section class="section" id="events">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">01</span>
+        <div>
+          <h2>三项赛事，三种打法</h2>
+          <p class="section-desc">
+            一句话区分：iCAN 交一个能演示的原创产品，RAICOM 交一台能在场地里跑起来的机器人，
+            RST 交机器人整机或一套能打赢比赛的仿真策略。下面三张卡片是最短版本，具体赛项见下一节。
+          </p>
+        </div>
+      </header>
+
+      <div class="event-grid">
+        <article class="event-card" style="--c:var(--ican)" data-reveal>
+          <div class="event-media">
+            <span class="event-index">EVENT 01</span>
+            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=students%20presenting%20innovation%20prototypes%20at%20a%20bright%20exhibition%20hall%2C%20demo%20day%2C%20warm%20natural%20light%2C%20documentary%20photography&amp;image_size=landscape_4_3" alt="iCAN 赛场：学生在展台前展示创新作品" loading="lazy">
+          </div>
+          <div class="event-body">
+            <span class="event-kind">创新创业 · 产品原型</span>
+            <h3>iCAN</h3>
+            <p class="event-full">iCAN 大学生创新创业大赛 · 第二十届</p>
+            <p class="event-desc">用原创技术做出能演示、能操作的产品或系统，并写清它解决什么问题。创新、创业、挑战三条赛道，团队 2–5 人。</p>
+            <div class="event-latest">
+              <div><b>2026 赛季</b>4–8 月报名 · 9 月校内赛 · 11 月全国总决赛</div>
+            </div>
+            <div class="event-actions">
+              <button class="mini-btn mini-btn--solid" type="button" data-modal="event-ican">赛事档案</button>
+              <a class="mini-btn" href="https://www.g-ican.com" target="_blank" rel="noopener">官网</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card" style="--c:var(--raicom)" data-reveal data-delay="1">
+          <div class="event-media">
+            <span class="event-index">EVENT 02</span>
+            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=robotic%20arm%20competition%20arena%2C%20students%20calibrating%20a%20robot%2C%20competition%20lighting%2C%20teal%20and%20navy%20tones%2C%20documentary%20photography&amp;image_size=landscape_4_3" alt="RAICOM 赛场：学生在赛道上调试机械臂" loading="lazy">
+          </div>
+          <div class="event-body">
+            <span class="event-kind">机器人开发 · 整机实战</span>
+            <h3>RAICOM</h3>
+            <p class="event-full">睿抗机器人开发者大赛 · 2026</p>
+            <p class="event-desc">让机器人整机在真实场地完成任务：火星科考、夺宝奇兵、慧眼识果、灵巧操作、具身智能。四大赛道，现场跑通才算数。</p>
+            <div class="event-latest">
+              <div><b>2026 赛季</b>省赛 6 月 · 国赛 7–10 月分赛项举行 · 每队 1–3 人</div>
+            </div>
+            <div class="event-actions">
+              <button class="mini-btn mini-btn--solid" type="button" data-modal="event-raicom">赛事档案</button>
+              <a class="mini-btn" href="https://www.raicom.com.cn" target="_blank" rel="noopener">官网</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card" style="--c:var(--rst)" data-reveal data-delay="2">
+          <div class="event-media">
+            <span class="event-index">EVENT 03</span>
+            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=underwater%20robot%20in%20a%20university%20lab%20tank%2C%20simulation%20screens%2C%20teal%20light%2C%20engineering%20competition%2C%20documentary%20photography&amp;image_size=landscape_4_3" alt="RST 赛场：水下机器人与仿真屏幕" loading="lazy">
+          </div>
+          <div class="event-body">
+            <span class="event-kind">机器人与仿真 · 个人可报</span>
+            <h3>RST</h3>
+            <p class="event-full">先进机器人及仿真技术大赛 · 第十九届</p>
+            <p class="event-desc">从水下机器人整机到纯 Python 仿真策略：写代码控制仿真机器鱼竞速、打水球，不买硬件也能参赛。五大赛道，中国仿真学会主办。</p>
+            <div class="event-latest">
+              <div><b>2026 赛季</b>4 月 7 日开通报名 · 校赛 / 省赛 / 国赛三级</div>
+            </div>
+            <div class="event-actions">
+              <button class="mini-btn mini-btn--solid" type="button" data-modal="event-rst">赛事档案</button>
+              <a class="mini-btn" href="http://urc.ilur.org" target="_blank" rel="noopener">官网</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 赛项拆解 ============ -->
+  <section class="section section--tint" id="breakdown">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">02</span>
+        <div>
+          <h2>每项比赛，具体在比什么</h2>
+          <p class="section-desc">
+            按赛事切换查看：有哪些赛道和赛项、选手实际要做出什么东西、一个具体赛项是怎么打的。
+            信息来自赛事官网公开通知与规则文件，报名细节以官网最新发布为准。
+          </p>
+        </div>
+      </header>
+
+      <div class="bd-switch" role="tablist" aria-label="切换赛事查看赛项">
+        <button class="bd-tab is-active" id="bdTabIcan" type="button" role="tab" aria-selected="true" aria-controls="bdIcan" data-bd="ican"><span class="n">01</span>iCAN</button>
+        <button class="bd-tab" id="bdTabRaicom" type="button" role="tab" aria-selected="false" aria-controls="bdRaicom" data-bd="raicom"><span class="n">02</span>RAICOM</button>
+        <button class="bd-tab" id="bdTabRst" type="button" role="tab" aria-selected="false" aria-controls="bdRst" data-bd="rst"><span class="n">03</span>RST</button>
+      </div>
+
+      <div class="bd-panels">
+        <!-- iCAN -->
+        <article class="bd-panel is-active" id="bdIcan" role="tabpanel" aria-labelledby="bdTabIcan" data-panel="ican" style="--c:var(--ican)" data-reveal>
+          <div class="bd-top">
+            <div class="bd-title">
+              <span class="bd-index">iCAN · 创新创业</span>
+              <h3>做一个能演示的原创产品，讲清它解决了什么问题</h3>
+              <p>
+                评审看三件事：是不是你原创的、有没有真的做出来、能不能说清应用场景。
+                创新赛道不要求商业闭环，但必须有能演示、能操作的作品；创业赛道则要求团队已经用这个项目注册了公司。
+              </p>
+            </div>
+            <dl class="bd-facts">
+              <div><dt>参赛形式</dt><dd>2–5 人团队，指导老师 ≤2</dd></div>
+              <div><dt>赛道</dt><dd>创新 / 创业 / 挑战</dd></div>
+              <div><dt>核心产出</dt><dd>可演示的产品或系统</dd></div>
+              <div><dt>2026 节点</dt><dd>4–8 月报名，11 月总决赛</dd></div>
+            </dl>
+          </div>
+          <div class="bd-cols">
+            <div class="bd-col">
+              <h4>有哪些赛道与方向</h4>
+              <ul class="bd-list">
+                <li><b>创新赛道</b><span>原创作品赛，按十个应用方向选题</span></li>
+                <li><b>创业赛道</b><span>已注册公司的项目，比商业化能力</span></li>
+                <li><b>挑战赛道</b><span>企业命题，AI、机器人、6G、电子信息等</span></li>
+                <li><b>十个方向</b><span>智慧建造 / 农业 / 社区 / 生活 / 医疗 / 教育 / 制造 / 软件 / 交通 / 材料</span></li>
+              </ul>
+            </div>
+            <div class="bd-col">
+              <h4>选手最后要交出什么</h4>
+              <ul class="bd-list">
+                <li><b>创新赛道</b><span>可演示操作的产品或系统 + 详细产品说明书</span></li>
+                <li><b>创业赛道</b><span>商业计划书 + 已注册公司的主体材料</span></li>
+                <li><b>挑战赛道</b><span>项目设计报告 PDF + 答辩 PPT，可加演示视频</span></li>
+                <li><b>现场</b><span>展台演示 + 答辩，总决赛同期设创新作品展</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="bd-case">
+            <span class="bd-case-tag">具体到一场比赛</span>
+            <p>
+              2026 年挑战赛道的「6G+X 前沿转化挑战赛」：围绕 6G 新空口、通感算一体、内生智能等方向，
+              在低空经济、集成电路、智能制造里找真实需求，最终交技术方案、系统设计或<b>软硬件原型</b>。
+              比的不是论文写得多好，而是方案能不能落地验证。
+            </p>
+          </div>
+        </article>
+
+        <!-- RAICOM -->
+        <article class="bd-panel" id="bdRaicom" role="tabpanel" aria-labelledby="bdTabRaicom" data-panel="raicom" style="--c:var(--raicom)">
+          <div class="bd-top">
+            <div class="bd-title">
+              <span class="bd-index">RAICOM · 机器人开发</span>
+              <h3>让机器人在真实场地里，把任务完整干完</h3>
+              <p>
+                赛题都带场地和道具，比的是导航、识别、抓取、对抗这些具体动作能不能稳定复现。
+                现场调试时间有限，参数没调好就是跑不动——纸面方案在这里拿不到分。
+              </p>
+            </div>
+            <dl class="bd-facts">
+              <div><dt>参赛形式</dt><dd>1–3 名学生 + 1–2 名老师</dd></div>
+              <div><dt>赛道</dt><dd>CAIM / CAIA / CAIP / CAIR</dd></div>
+              <div><dt>核心产出</dt><dd>可现场运行的机器人整机</dd></div>
+              <div><dt>赛制</dt><dd>省赛晋级全国总决赛</dd></div>
+            </dl>
+          </div>
+          <div class="bd-cols">
+            <div class="bd-col">
+              <h4>四大赛道，代表赛题</h4>
+              <ul class="bd-list">
+                <li><b>CAIR 强体</b><span>轮式-火星科考 / 夺宝奇兵 / 慧眼识果；足式-多模态巡检；空中-飞行协同；人形-具身智能场景</span></li>
+                <li><b>CAIA 设计</b><span>机器人创新设计：智居环境、交互设计、演艺设计、造型设计、商业应用</span></li>
+                <li><b>CAIM 工创</b><span>工程创新与制造方向赛题</span></li>
+                <li><b>CAIP 强脑</b><span>智能算法与脑机方向赛题，具体以官网赛项页为准</span></li>
+              </ul>
+            </div>
+            <div class="bd-col">
+              <h4>选手最后要交出什么</h4>
+              <ul class="bd-list">
+                <li><b>现场成绩</b><span>机器人在指定场地连续完成任务的用时与完成率</span></li>
+                <li><b>作品</b><span>可运行的整机或软件系统 + 技术方案</span></li>
+                <li><b>答辩</b><span>设计思路、技术难点与现场演示</span></li>
+                <li><b>报名限制</b><span>全日制在校生（中职/高职/本科/硕博），每人限报 1 项赛题</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="bd-case">
+            <span class="bd-case-tag">具体到一场比赛</span>
+            <p>
+              以 CAIR 强体赛道的「轮式机器人-火星科考」为例：机器人在模拟火星地表自主巡线，
+              识别采样点并完成物资搬运，比的是<b>自主导航精度与任务完成率</b>；
+              同赛道的「慧眼识果」则要求识别成熟果实并完成采摘动作，撞杆、超时都会直接影响成绩。
+            </p>
+          </div>
+        </article>
+
+        <!-- RST -->
+        <article class="bd-panel" id="bdRst" role="tabpanel" aria-labelledby="bdTabRst" data-panel="rst" style="--c:var(--rst)">
+          <div class="bd-top">
+            <div class="bd-title">
+              <span class="bd-index">RST · 机器人与仿真</span>
+              <h3>要么造一台水下机器人，要么写一套能赢的策略</h3>
+              <p>
+                中国仿真学会主办，已办到第十九届。智慧海洋赛道要把实体水下机器人放进水池完成任务；
+                仿真技术赛道和个人赛则在软件里跑，写 Python 控制仿真机器鱼。成绩就是用时、进球和任务完成度。
+              </p>
+            </div>
+            <dl class="bd-facts">
+              <div><dt>参赛形式</dt><dd>团队赛 + 个人赛</dd></div>
+              <div><dt>赛道</dt><dd>5 条，40+ 个组别</dd></div>
+              <div><dt>核心产出</dt><dd>机器人整机或策略代码</dd></div>
+              <div><dt>赛制</dt><dd>校赛 → 省赛 → 国赛</dd></div>
+            </dl>
+          </div>
+          <div class="bd-cols">
+            <div class="bd-col">
+              <h4>五大赛道，组别举例</h4>
+              <ul class="bd-list">
+                <li><b>智慧海洋</b><span>12 组：全局视觉、水下操控、自主视觉、水面机器人、水下工程作业等</span></li>
+                <li><b>仿真技术</b><span>6 组：太空目标监测识别仿真、集群智能算法、工程仿真等</span></li>
+                <li><b>智能制造</b><span>10 组：机器人格斗与仿真、人形机器人、无人机、无人车等</span></li>
+                <li><b>创新创业</b><span>7 组：创新创意、创业、前沿技术挑战等</span></li>
+                <li><b>个人赛</b><span>6 组：水中机器鱼仿真、轮式足球仿真、DeepSeek 专项等</span></li>
+              </ul>
+            </div>
+            <div class="bd-col">
+              <h4>选手最后要交出什么</h4>
+              <ul class="bd-list">
+                <li><b>实体组</b><span>水下 / 水面机器人整机，现场下水完成任务</span></li>
+                <li><b>仿真组</b><span>策略代码或仿真模型，在赛事官网提交</span></li>
+                <li><b>个人赛</b><span>1 人独立完成，指导老师不超过 2 人</span></li>
+                <li><b>硬件门槛</b><span>水中机器鱼仿真组：Windows 10 + i5 + GTX1050 即可，无需买实体鱼</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="bd-case">
+            <span class="bd-case-tag">具体到一场比赛</span>
+            <p>
+              个人赛「水中机器鱼仿真组（第三赛季）」设两个科目：
+              ① <b>障碍竞速</b>——60 秒内控制一条仿真鱼绕过并环绕 3 个障碍到达终点，按用时排名；
+              ② <b>水球 2V2</b>——控制己方两条鱼，2 分钟内把水球打进对方球门，进球多者获胜。
+              选手只需在官网提交策略文件，平台加载后自动跑完比赛。
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 赛季战报 ============ -->
+  <section class="section" id="results">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">03</span>
+        <div>
+          <h2>赛季战报</h2>
+          <p class="section-desc">
+            以下内容整理自各高校官网公开新闻，按赛事筛选即可查看。
+            成绩表述以原报道为准，未逐一核实赛事官方名单。
+          </p>
+        </div>
+      </header>
+
+      <div class="tabs" role="tablist" aria-label="按赛事筛选战报">
+        <button class="tab is-active" type="button" role="tab" aria-selected="true" data-filter="all">全部<span class="n">6</span></button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-filter="ican">iCAN<span class="n">2</span></button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-filter="raicom">RAICOM<span class="n">2</span></button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-filter="rst">RST<span class="n">2</span></button>
+      </div>
+
+      <div class="report-grid" id="reportGrid">
+        <article class="report" data-comp="raicom" style="--c:var(--raicom)" data-reveal>
+          <div class="report-date">2026.08<br>—09<small>杭州</small></div>
+          <div>
+            <span class="report-tag"><i class="dot dot--raicom"></i>RAICOM · 全国总决赛</span>
+            <h3>2026 睿抗机器人开发者大赛全国总决赛</h3>
+            <p>全国总决赛第二阶段在杭州举行。山西大学获一等奖 5 项、二等奖 7 项、三等奖 16 项，并获优秀组织奖。</p>
+            <div class="report-foot">
+              <span class="report-stat">一等奖 5 项</span>
+              <span class="report-school">山西大学</span>
+              <span>来源：高校官网新闻</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="report" data-comp="raicom" style="--c:var(--raicom)" data-reveal data-delay="1">
+          <div class="report-date">2026.09<small>杭州</small></div>
+          <div>
+            <span class="report-tag"><i class="dot dot--raicom"></i>RAICOM · 全国总决赛</span>
+            <h3>多校在 2026 全国总决赛中获奖</h3>
+            <p>中山大学智能工程学院获全国一等奖；华东师范大学获一等奖 2 项、二等奖 2 项；昆明理工大学获一等奖 1 项、二等奖 1 项。</p>
+            <div class="report-foot">
+              <span class="report-stat">一等奖 4 项</span>
+              <span class="report-school">中山大学 / 华东师大 / 昆明理工</span>
+              <span>来源：高校官网新闻</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="report" data-comp="rst" style="--c:var(--rst)" data-reveal>
+          <div class="report-date">2026.07<small>第十九届</small></div>
+          <div>
+            <span class="report-tag"><i class="dot dot--rst"></i>RST · 全国赛</span>
+            <h3>第十九届先进机器人及仿真技术大赛</h3>
+            <p>第十九届赛事于 2026 年 7 月举行，同济大学电子与信息工程学院本科生团队获全国一等奖。</p>
+            <div class="report-foot">
+              <span class="report-stat">全国一等奖</span>
+              <span class="report-school">同济大学</span>
+              <span>来源：高校官网新闻</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="report" data-comp="ican" style="--c:var(--ican)" data-reveal data-delay="1">
+          <div class="report-date">2025.12<small>香港</small></div>
+          <div>
+            <span class="report-tag"><i class="dot dot--ican"></i>iCAN · 国际总决赛</span>
+            <h3>2025 iCAN 国际总决赛在香港举行</h3>
+            <p>西北工业大学获国际总决赛冠军，另获国际赛二等奖 1 项；全国总决赛获 17 项大奖，一等奖数量居全国前列。</p>
+            <div class="report-foot">
+              <span class="report-stat">国际总决赛冠军</span>
+              <span class="report-school">西北工业大学</span>
+              <span>来源：高校官网新闻</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="report" data-comp="ican" style="--c:var(--ican)" data-reveal>
+          <div class="report-date">2024.12<small>淄博</small></div>
+          <div>
+            <span class="report-tag"><i class="dot dot--ican"></i>iCAN · 全国总决赛</span>
+            <h3>第十八届 iCAN 全国总决赛在淄博举行</h3>
+            <p>哈尔滨工业大学获全国一等奖 1 项、二等奖 4 项、三等奖 6 项，并获「优秀组织单位」奖。</p>
+            <div class="report-foot">
+              <span class="report-stat">一等奖 1 项</span>
+              <span class="report-school">哈尔滨工业大学</span>
+              <span>来源：高校官网新闻</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="report" data-comp="rst" style="--c:var(--rst)" data-reveal data-delay="1">
+          <div class="report-date">2024.11<small>福州</small></div>
+          <div>
+            <span class="report-tag"><i class="dot dot--rst"></i>RST · 全国总决赛</span>
+            <h3>第十七届 RST 全国总决赛在福州举行</h3>
+            <p>2024 年 11 月 16—17 日，厦门大学获水下机器人赛项冠军；东北大学获一等奖 5 项（含全国冠军 2 项、亚军 1 项）、二等奖 1 项、三等奖 3 项及优秀组织奖。</p>
+            <div class="report-foot">
+              <span class="report-stat">冠军 2 项</span>
+              <span class="report-school">东北大学 / 厦门大学</span>
+              <span>来源：高校官网新闻</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="empty" id="reportEmpty" hidden>该赛事下暂无整理的战报。</div>
+    </div>
+  </section>
+
+  <!-- ============ 现场 ============ -->
+  <section class="section section--tint" id="scenes">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">04</span>
+        <div>
+          <h2>现场</h2>
+          <p class="section-desc">
+            调试、答辩、颁奖，比赛真正让人记住的往往不是名次，而是这些时刻。
+            点击任意图片可放大查看。
+          </p>
+        </div>
+      </header>
+
+      <div class="gallery" data-reveal>
+        <button class="shot" type="button" data-caption="决赛现场 · 调试与候场" data-sub="RAICOM 全国总决赛">
+          <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=students%20debugging%20a%20small%20robot%20on%20a%20workbench%20with%20wires%20and%20tools%2C%20warm%20indoor%20light%2C%20documentary%20photography&amp;image_size=portrait_4_3" alt="学生在工作台上调试机器人" loading="lazy">
+          <span class="shot-cap">决赛现场 · 调试与候场<small>RAICOM 全国总决赛</small></span>
+        </button>
+        <button class="shot" type="button" data-caption="答辩现场 · 讲清一个问题" data-sub="iCAN 全国总决赛">
+          <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=student%20presenting%20a%20prototype%20to%20judges%20in%20a%20bright%20conference%20room%2C%20warm%20light%2C%20documentary%20photography&amp;image_size=landscape_16_9" alt="学生在评审前进行作品答辩" loading="lazy">
+          <span class="shot-cap">答辩现场 · 讲清一个问题<small>iCAN 全国总决赛</small></span>
+        </button>
+        <button class="shot" type="button" data-caption="赛场 · 观众与实时大屏" data-sub="RST 赛场">
+          <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=audience%20watching%20a%20robotics%20competition%20arena%20with%20large%20screens%2C%20blue%20arena%20light%2C%20documentary%20photography&amp;image_size=portrait_4_3" alt="观众在赛场观看大屏直播" loading="lazy">
+          <span class="shot-cap">赛场 · 观众与实时大屏<small>RST 赛场</small></span>
+        </button>
+        <button class="shot" type="button" data-caption="颁奖时刻 · 团队合影" data-sub="赛季收官">
+          <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=team%20of%20students%20holding%20medals%20and%20certificates%20on%20an%20award%20stage%2C%20warm%20stage%20light%2C%20documentary%20photography&amp;image_size=landscape_4_3" alt="获奖团队在舞台上合影" loading="lazy">
+          <span class="shot-cap">颁奖时刻 · 团队合影<small>赛季收官</small></span>
+        </button>
+      </div>
+      <p class="gallery-note">当前图片为 AI 生成的示意画面，收到真实现场照片后会替换为实际影像。</p>
+    </div>
+  </section>
+
+  <!-- ============ 关于 ============ -->
+  <section class="section" id="about">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">05</span>
+        <div>
+          <h2>关于这个站点</h2>
+          <p class="section-desc">
+            这是一个由学生团队维护的竞赛宣传页，不是赛事官方站点。我们只把赛项内容、战报和入口整理清楚，不代办报名。
+          </p>
+        </div>
+      </header>
+
+      <div class="about-grid">
+        <div class="about-block" data-reveal>
+          <h3>我们在做什么</h3>
+          <p>
+            三项赛事经常被放在一起宣传，但很多同学看完还是不知道它们分别比什么。
+            所以我们把官网通知、赛项规则和高校公开战报对照着读，压成现在这一版：
+            每项赛事有哪些赛道、选手要交出什么、一个赛项具体怎么打。
+          </p>
+          <p>
+            战报都标注了来源，成绩表述以原报道为准；赛项与赛程以赛事官网最新通知为准。
+            若你发现信息有误，或希望补充自己学校的报道，欢迎通过学院或社团渠道联系我们。
+          </p>
+          <p>
+            本站不提供报名代办，也不代表任何赛事组委会。报名请从下方官方入口进入。
+          </p>
+        </div>
+
+        <div class="about-block" data-reveal data-delay="1">
+          <h3>官方入口</h3>
+          <div class="link-row">
+            <span><i class="dot dot--ican"></i>iCAN 大学生创新创业大赛</span>
+            <a href="https://www.g-ican.com" target="_blank" rel="noopener">g-ican.com →</a>
+          </div>
+          <div class="link-row">
+            <span><i class="dot dot--raicom"></i>RAICOM 睿抗机器人开发者大赛</span>
+            <a href="https://www.raicom.com.cn" target="_blank" rel="noopener">raicom.com.cn →</a>
+          </div>
+          <div class="link-row">
+            <span><i class="dot dot--rst"></i>RST 先进机器人及仿真技术大赛</span>
+            <a href="http://urc.ilur.org" target="_blank" rel="noopener">ilur.org →</a>
+          </div>
+          <div class="link-row">
+            <span>赛项规则与报名</span>
+            <a href="http://urc.ilur.org/news/428" target="_blank" rel="noopener">第十九届通知 →</a>
+          </div>
+          <p class="link-note">三项官网均已核实可访问（RST 官网目前仅支持 http 访问）；赛项与时间以官网当前发布为准。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div>
+        <p class="footer-brand">
+          try1 · 竞赛宣传站
+          <small>TRY1 · TRY AGAIN</small>
+        </p>
+        <p>把三项赛事的赛项内容、赛季战报与官方入口整理成一份看得懂的参赛地图。</p>
+      </div>
+      <div>
+        <h4>内容来源</h4>
+        <ul>
+          <li>赛事官网公开通知与赛项规则</li>
+          <li>水中机器鱼仿真组规则文件</li>
+          <li>各高校官网公开新闻</li>
+          <li>现场图片为 AI 生成示意</li>
+        </ul>
+      </div>
+      <div>
+        <h4>官方入口</h4>
+        <ul>
+          <li><a href="https://www.g-ican.com" target="_blank" rel="noopener">iCAN 大赛官网 →</a></li>
+          <li><a href="https://www.raicom.com.cn" target="_blank" rel="noopener">RAICOM 官网 →</a></li>
+          <li><a href="http://urc.ilur.org" target="_blank" rel="noopener">RST 大赛官网 →</a></li>
+          <li><a href="#about">关于本站 →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 try1 竞赛宣传组</span>
+      <span>内容为宣传整理，成绩以赛事官方公布为准</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- ============ 赛事档案弹窗 ============ -->
+<dialog class="modal" id="guideModal" aria-labelledby="modalTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <p class="modal-kicker" id="modalKicker">EVENT</p>
+      <h2 id="modalTitle">赛事档案</h2>
+      <button class="modal-close" id="modalClose" type="button" aria-label="关闭窗口">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot">
+      <a class="btn btn--primary" id="modalCta" href="#" target="_blank" rel="noopener">前往官网</a>
+      <button class="btn btn--ghost" type="button" data-close-modal>关闭窗口</button>
+      <small id="modalNote">官网链接待补充</small>
+    </div>
+  </div>
+</dialog>
+
+<!-- ============ 图片放大 ============ -->
+<dialog class="lightbox" id="lightbox" aria-label="查看现场大图">
+  <button class="lb-close" id="lbClose" type="button" aria-label="关闭大图">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <figure style="margin:0">
+    <img id="lbImg" src="" alt="">
+    <figcaption>
+      <span id="lbCap"></span>
+      <span id="lbCount"></span>
+    </figcaption>
+  </figure>
+  <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="上一张">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="下一张">›</button>
+</dialog>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ============================================================
+     赛事档案内容（改这里即可更新弹窗文案与外链）
+     ============================================================ */
+  var MODALS = {
+    "event-ican": {
+      kicker: "EVENT 01 · iCAN 创新创业",
+      title: "iCAN 大学生创新创业大赛",
+      cta: { label: "前往 iCAN 官网", href: "https://www.g-ican.com" },
+      note: "赛项与报名以 iCAN 官网最新通知为准",
+      body:
+        '<p class="modal-lead">用原创技术做出能演示的产品或系统。创新赛道看作品，创业赛道看已注册公司的商业化，挑战赛道做企业命题。</p>' +
+        '<div class="stat-line">' +
+          '<div><span>赛道</span><b>3 条</b></div>' +
+          '<div><span>团队规模</span><b>2–5 人</b></div>' +
+          '<div><span>应用方向</span><b>10 个</b></div>' +
+        '</div>' +
+        '<h4>赛项设置</h4>' +
+        '<ul>' +
+          '<li><b>创新赛道</b>：按智慧建造、智慧农业、智慧社区、智慧生活、智慧医疗、智慧教育、智慧制造、智慧软件、智慧交通、智慧材料十个方向提交原创作品。</li>' +
+          '<li><b>创业赛道</b>：团队须已用自主项目注册公司，提交商业计划书，比商业化与市场落地。</li>' +
+          '<li><b>挑战赛道</b>：企业命题，含人工智能、机器人、6G、电子信息等赛项，例如 6G+X 前沿转化挑战赛。</li>' +
+        '</ul>' +
+        '<h4>选手要交出什么</h4>' +
+        '<ul>' +
+          '<li>创新赛道：可演示、可操作的产品或系统 + 详细产品说明书</li>' +
+          '<li>创业赛道：商业计划书 + 公司主体与股权材料</li>' +
+          '<li>挑战赛道：项目设计报告 PDF、答辩 PPT，可选交演示视频</li>' +
+          '<li>现场：展台演示 + 答辩，总决赛同期设创新作品展</li>' +
+        '</ul>' +
+        '<h4>2026 赛季节点</h4>' +
+        '<p>4 月 1 日—8 月 31 日报名并提交材料；9 月 1—15 日校内赛；9 月 19 日—10 月 25 日区域赛；11 月中下旬全国总决赛。创新赛道采用校内赛、区域赛、全国总决赛三级赛制。</p>' +
+        '<div class="modal-link-row"><b>适合方向</b><span>硬件 / 嵌入式 · 软件 · 产品设计 · 商业分析</span></div>'
+    },
+    "event-raicom": {
+      kicker: "EVENT 02 · RAICOM 机器人开发",
+      title: "RAICOM 睿抗机器人开发者大赛",
+      cta: { label: "前往 RAICOM 官网", href: "https://www.raicom.com.cn" },
+      note: "赛项与报名以 RAICOM 官网最新通知为准",
+      body:
+        '<p class="modal-lead">让机器人整机在真实场地完成任务。赛题带场地和道具，比导航、识别、抓取、对抗能否稳定复现，现场调试决定成绩。</p>' +
+        '<div class="stat-line">' +
+          '<div><span>赛道</span><b>4 条</b></div>' +
+          '<div><span>团队规模</span><b>1–3 人 + 老师</b></div>' +
+          '<div><span>报名费</span><b>600 元 / 队</b></div>' +
+        '</div>' +
+        '<h4>四大赛道与代表赛项</h4>' +
+        '<ul>' +
+          '<li><b>CAIR 强体</b>：轮式机器人（火星科考、夺宝奇兵、全域安防、慧眼识果）、足式机器人（多模态巡检）、空中机器人（飞行具身协同）、人形机器人（具身智能场景）、其他结构机器人（灵巧操作、物流挑战）。</li>' +
+          '<li><b>CAIA 设计</b>：机器人创新设计（智居环境、交互设计、应用场景分析、演艺设计、造型设计、商业应用）、AIDT 技术在智能制造场景的创新应用。</li>' +
+          '<li><b>CAIM 工创</b>：工程创新与制造方向赛题。</li>' +
+          '<li><b>CAIP 强脑</b>：智能算法与脑机方向赛题，具体以官网赛项页为准。</li>' +
+        '</ul>' +
+        '<h4>选手要交出什么</h4>' +
+        '<ul>' +
+          '<li>现场：机器人在指定场地连续完成任务，记录用时、完成率与犯规</li>' +
+          '<li>作品：可运行的整机或软件系统 + 技术方案</li>' +
+          '<li>答辩：设计思路、技术难点与现场演示</li>' +
+          '<li>报名：全日制在校生（中职 / 高职 / 本科 / 硕博），每人限报 1 项赛题</li>' +
+        '</ul>' +
+        '<h4>怎么晋级</h4>' +
+        '<p>省赛一、二等奖进入全国总决赛；省赛一、二、三等奖比例分别不超过 15%、25%、40%，电子证书由工业和信息化部人才交流中心颁发。2026 年省赛 6 月举行，国赛 7—10 月按赛项分地举行。</p>' +
+        '<p class="modal-src">费用依据：<a href="https://ieetc.shiep.edu.cn/_upload/article/files/68/20/dd8de47549ed933293b5d77a5b70/db6f9ad9-3315-4238-bac4-a7d8d26ac83c.pdf" target="_blank" rel="noopener">2026 睿抗机器人开发者大赛上海市赛通知</a>（原文为“600 元/队”，各省赛区执行可能有差异）。</p>' +
+        '<div class="modal-link-row"><b>适合方向</b><span>机械结构 · 电控 · 视觉 / 导航算法 · 现场调试</span></div>'
+    },
+    "event-rst": {
+      kicker: "EVENT 03 · RST 机器人与仿真",
+      title: "先进机器人及仿真技术大赛",
+      cta: { label: "前往 RST 官网", href: "http://urc.ilur.org" },
+      note: "赛项与报名以 RST 官网最新通知为准",
+      body:
+        '<p class="modal-lead">中国仿真学会主办，已办到第十九届。既比实体水下机器人下水作业，也比纯软件里的仿真策略；个人也能单独报名。</p>' +
+        '<div class="stat-line">' +
+          '<div><span>赛道</span><b>5 条</b></div>' +
+          '<div><span>组别</span><b>40+ 个</b></div>' +
+          '<div><span>参赛形式</span><b>团队 / 个人</b></div>' +
+        '</div>' +
+        '<h4>五大赛道与组别</h4>' +
+        '<ul>' +
+          '<li><b>智慧海洋（12 组）</b>：全局视觉、工程项目、仿生水中机器人创新、水下智能装备创新设计、水下操控、自主视觉、水中机器人仿真、水面机器人、水面打击、集群任务、水下资源争夺、水下工程作业。</li>' +
+          '<li><b>仿真技术（6 组）</b>：太空目标监测识别仿真、集群智能算法、元宇宙创新应用设计、工程仿真、仿真技术应用、智能工厂仿真与制造。</li>' +
+          '<li><b>智能制造（10 组）</b>：机器人格斗与仿真、仿生视觉机器人、机器人算法与控制设计、三维数字化制造、人形机器人、脑机与应急机器人、智能装备设计与制造、足式机器人、无人机组、无人车组。</li>' +
+          '<li><b>创新创业（7 组）</b>：创新创意、创业、前沿技术挑战、机器人与未来、科普项目设计、科技艺术融合、技术应用。</li>' +
+          '<li><b>个人赛（6 组）</b>：轮式机器人足球仿真、仿真技术毕业设计、DeepSeek 专项、豆包智慧创作、通义千问应用挑战、水中机器鱼仿真。</li>' +
+        '</ul>' +
+        '<h4>一个赛项具体怎么打：水中机器鱼仿真组</h4>' +
+        '<ul>' +
+          '<li><b>平台</b>：水中机器鱼仿真软件，内置 Python 3.7；Windows 10 及以上，i5 / GTX1050 以上即可</li>' +
+          '<li><b>科目一 障碍竞速</b>：排位赛，60 秒内控制一条仿真鱼绕过 3 个障碍到达终点，按用时升序排名</li>' +
+          '<li><b>科目二 水球 2V2</b>：对抗赛，2 分钟内控制己方两条鱼配合进攻，进球多者获胜</li>' +
+          '<li><b>提交</b>：在官网提交策略文件，平台加载后自动运行并记录成绩</li>' +
+        '</ul>' +
+        '<h4>参赛与费用</h4>' +
+        '<p>个人赛 1 人参赛、指导老师不超过 2 人，报名费 300 元 / 人 / 科目；团队赛省赛不收费，国赛 800 元 / 队 / 科目。赛制为校赛 → 省赛 → 国赛，省赛一、二等奖进入国赛。</p>' +
+        '<p class="modal-src">费用依据：<a href="http://urc.ilur.org/news/428" target="_blank" rel="noopener">关于举办第十九届先进机器人及仿真技术大赛的通知</a>（中国仿真学会）。</p>' +
+        '<div class="modal-link-row"><b>适合方向</b><span>Python 策略 · 控制算法 · 仿真建模 · 水下机器人结构</span></div>'
+    },
+    links: {
+      kicker: "OFFICIAL LINKS",
+      title: "官方入口",
+      note: "报名、赛程与规则以各赛事官网为准",
+      body:
+        '<p class="modal-lead">报名、赛程与规则请以赛事官方渠道为准。本站只做宣传整理，不代办报名。</p>' +
+        '<div class="modal-link-row"><b><i class="dot dot--ican"></i> iCAN 大学生创新创业大赛</b><a href="https://www.g-ican.com" target="_blank" rel="noopener">g-ican.com →</a></div>' +
+        '<div class="modal-link-row"><b><i class="dot dot--raicom"></i> RAICOM 睿抗机器人开发者大赛</b><a href="https://www.raicom.com.cn" target="_blank" rel="noopener">raicom.com.cn →</a></div>' +
+        '<div class="modal-link-row"><b><i class="dot dot--rst"></i> RST 先进机器人及仿真技术大赛</b><a href="http://urc.ilur.org" target="_blank" rel="noopener">ilur.org →</a></div>' +
+        '<p style="margin-top:16px;font-size:.82rem;color:var(--muted)">如需补充各校报名通知或校内选拔信息，请通过学院或社团渠道联系本站团队。</p>'
+    }
+  };
+
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- 头部滚动态 ---------- */
+  var header = $("#siteHeader");
+  var toTop = $("#toTop");
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    header.classList.toggle("is-scrolled", y > 24);
+    toTop.classList.toggle("is-shown", y > 520);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- 移动端菜单 ---------- */
+  var menuToggle = $("#menuToggle");
+  var mobileMenu = $("#mobileMenu");
+  function setMenu(open) {
+    mobileMenu.classList.toggle("is-open", open);
+    menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    menuToggle.setAttribute("aria-label", open ? "关闭菜单" : "打开菜单");
+    header.classList.toggle("is-menu-open", open);
+  }
+  menuToggle.addEventListener("click", function () {
+    setMenu(!mobileMenu.classList.contains("is-open"));
+  });
+  $$("a, button", mobileMenu).forEach(function (el) {
+    el.addEventListener("click", function () { setMenu(false); });
+  });
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 860) setMenu(false);
+  });
+
+  /* ---------- 导航高亮 ---------- */
+  var navLinks = $$(".nav a");
+  var sections = ["events", "breakdown", "results", "scenes", "about"]
+    .map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  if ("IntersectionObserver" in window) {
+    var navIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (link) {
+          link.classList.toggle("is-active", link.getAttribute("href") === "#" + entry.target.id);
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+    sections.forEach(function (s) { navIO.observe(s); });
+  }
+
+  /* ---------- 滚动揭示 ---------- */
+  var reveals = $$("[data-reveal]");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    reveals.forEach(function (el) { el.classList.add("is-visible"); });
+  } else {
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealIO.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -50px 0px" });
+    reveals.forEach(function (el) { revealIO.observe(el); });
+  }
+
+  /* ---------- 战报筛选 ---------- */
+  var reportCards = $$(".report");
+  var reportEmpty = $("#reportEmpty");
+  $$(".tabs .tab").forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      $$(".tabs .tab").forEach(function (t) {
+        var active = t === tab;
+        t.classList.toggle("is-active", active);
+        t.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      var filter = tab.getAttribute("data-filter");
+      var shown = 0;
+      reportCards.forEach(function (card) {
+        var match = filter === "all" || card.getAttribute("data-comp") === filter;
+        card.hidden = !match;
+        if (match) shown++;
+        if (match) card.classList.add("is-visible");
+      });
+      reportEmpty.hidden = shown > 0;
+    });
+  });
+
+  /* ---------- 赛项拆解切换 ---------- */
+  var bdTabs = $$(".bd-tab");
+  var bdPanels = $$(".bd-panel");
+  function setBreakdown(key) {
+    bdTabs.forEach(function (tab) {
+      var on = tab.getAttribute("data-bd") === key;
+      tab.classList.toggle("is-active", on);
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    bdPanels.forEach(function (panel) {
+      panel.classList.toggle("is-active", panel.getAttribute("data-panel") === key);
+    });
+  }
+  bdTabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      setBreakdown(tab.getAttribute("data-bd"));
+    });
+    tab.addEventListener("keydown", function (e) {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      e.preventDefault();
+      var i = bdTabs.indexOf(tab);
+      var next = bdTabs[(i + (e.key === "ArrowRight" ? 1 : -1) + bdTabs.length) % bdTabs.length];
+      next.focus();
+      setBreakdown(next.getAttribute("data-bd"));
+    });
+  });
+
+  /* ---------- 弹窗 ---------- */
+  var modal = $("#guideModal");
+  var modalKicker = $("#modalKicker");
+  var modalTitle = $("#modalTitle");
+  var modalBody = $("#modalBody");
+  var modalCta = $("#modalCta");
+  var modalNote = $("#modalNote");
+  var lastFocus = null;
+
+  function openModal(key) {
+    var data = MODALS[key];
+    if (!data || !modal) return;
+    lastFocus = document.activeElement;
+    modalKicker.textContent = data.kicker || "EVENT";
+    modalTitle.textContent = data.title || "赛事档案";
+    modalBody.innerHTML = data.body || "";
+    modalBody.scrollTop = 0;
+    if (data.cta && data.cta.href) {
+      modalCta.style.display = "";
+      modalCta.href = data.cta.href;
+      modalCta.textContent = data.cta.label || "前往官网";
+    } else {
+      modalCta.style.display = "none";
+    }
+    modalNote.textContent = data.note || "";
+    document.body.classList.add("is-locked");
+    if (typeof modal.showModal === "function") modal.showModal();
+    else modal.setAttribute("open", "");
+  }
+
+  function closeModal() {
+    if (typeof modal.close === "function") modal.close();
+    else modal.removeAttribute("open");
+    document.body.classList.remove("is-locked");
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.addEventListener("click", function (e) {
+    var trigger = e.target.closest("[data-modal]");
+    if (trigger) {
+      e.preventDefault();
+      openModal(trigger.getAttribute("data-modal"));
+      return;
+    }
+    if (e.target.closest("[data-close-modal]")) closeModal();
+  });
+
+  if (modal) {
+    $("#modalClose").addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) closeModal();
+    });
+    modal.addEventListener("close", function () {
+      document.body.classList.remove("is-locked");
+    });
+  }
+
+  /* ---------- 图片放大 ---------- */
+  var lb = $("#lightbox");
+  var lbImg = $("#lbImg");
+  var lbCap = $("#lbCap");
+  var lbCount = $("#lbCount");
+  var shots = $$(".shot");
+  var lbIndex = 0;
+
+  function showShot(i) {
+    if (!shots.length) return;
+    lbIndex = (i + shots.length) % shots.length;
+    var shot = shots[lbIndex];
+    var img = shot.querySelector("img");
+    lbImg.src = img.src;
+    lbImg.alt = img.alt || "";
+    lbCap.textContent = shot.getAttribute("data-caption") + " · " + shot.getAttribute("data-sub");
+    lbCount.textContent = (lbIndex + 1) + " / " + shots.length;
+    if (!lb.open) {
+      document.body.classList.add("is-locked");
+      if (typeof lb.showModal === "function") lb.showModal();
+      else lb.setAttribute("open", "");
+    }
+  }
+
+  shots.forEach(function (shot, i) {
+    shot.addEventListener("click", function () { showShot(i); });
+  });
+
+  $("#lbClose").addEventListener("click", function () { lb.close(); });
+  $("#lbPrev").addEventListener("click", function () { showShot(lbIndex - 1); });
+  $("#lbNext").addEventListener("click", function () { showShot(lbIndex + 1); });
+  lb.addEventListener("click", function (e) {
+    if (e.target === lb) lb.close();
+  });
+  lb.addEventListener("close", function () {
+    if (!modal.open) document.body.classList.remove("is-locked");
+  });
+  document.addEventListener("keydown", function (e) {
+    if (!lb.open) return;
+    if (e.key === "ArrowLeft") showShot(lbIndex - 1);
+    if (e.key === "ArrowRight") showShot(lbIndex + 1);
+  });
+
+  /* ---------- 回到顶部 ---------- */
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+})();
+</script>
+</body>
+</html>
